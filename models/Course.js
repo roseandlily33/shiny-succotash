@@ -1,32 +1,37 @@
-const {Schema, Types} = require('mongoose');
+const { Schema, model } = require('mongoose');
 
-const assignmentSchema = new Schema (
+const courseSchema = new Schema(
     {
-        assignmentId: {
-            type: Schema.Types.ObjectId,
-            default: () => new Types.ObjectId()
-        },
-        assignmentName: {
+        courseName: {
             type: String,
             required: true,
-            maxlength: 50,
-            minlength: 40,
-            defualt: 'Unamed'
+            minlength: 3,
+        }, 
+        inPerson: {
+            type: Boolean,
+            default: true,
         },
-        score: {
-            type: Number, 
-            required: true,
-            default: () => Math.floor(Math.random()* (100-7- + 1) + 70),
-        },
-        createdAt: {
+        startDate: {
             type: Date,
             default: new Date.now()
+        }, 
+        endDate: {
+            type: Date,
+            default: () => new Date(+new Date() + 84 * 24 * 60 * 60 * 1000),
+
         },
+        students: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Student',
+            }
+        ]
     }, {
         toJSON: {
-            getters: true,
-        }, id: false
+            virtuals: true,
+        }, id:false,
     }
 );
 
-module.exports = assignmentSchema;
+const Course = model('course', courseSchema);
+module.exports = Course;

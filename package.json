@@ -1,0 +1,27 @@
+{
+  "name": "shiny-succotash",
+  "version": "1.0.0",
+  "description": "MonogoDB Back End Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index",
+    "dev": "nodemon index",
+    "seed": "node utils/seed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roseandlily33/shiny-succotash.git"
+  },
+  "author": "Victoria Benoit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/roseandlily33/shiny-succotash/issues"
+  },
+  "homepage": "https://github.com/roseandlily33/shiny-succotash#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.2.1",
+    "nodemon": "^2.0.22"
+  }
+}

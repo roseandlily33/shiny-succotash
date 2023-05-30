@@ -13,7 +13,7 @@ const courseSchema = new Schema(
         },
         startDate: {
             type: Date,
-            default: new Date.now()
+            default: Date.now()
         }, 
         endDate: {
             type: Date,

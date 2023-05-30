@@ -26,5 +26,6 @@ const studentSchema = new Schema(
     }
 );
 
+
 const Student = model('student', studentSchema);
 module.exports = Student;

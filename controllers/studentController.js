@@ -1,10 +1,20 @@
 const {Student} = require('../models');
 
+//Aggregate function for total of students
+const headCount = async() => {
+    const numOfStu = await Student.count();
+    return numOfStu;
+}
+
 module.exports = {
     async getStudents(req, res) {
         try{
             const students = await Student.find();
-            res.json(students);
+            const allStudents = {
+                students, 
+                headCount: await headCount()
+            }
+            res.json(allStudents);
         } catch(err){
             res.status(500).json(err);
         }
@@ -12,7 +22,11 @@ module.exports = {
     async getOneStudent(req, res){
         try{
             const oneStudent = await Student.findOne({_id: req.params.studentId});
-            res.json(oneStudent);
+            const onlyOne = {
+                oneStudent,
+                grade: await grade(oneStudent._id)
+            }
+            res.json(onlyOne);
         } catch(err){
             res.status(500).json(err);
         }
@@ -20,7 +34,7 @@ module.exports = {
     async createStudent(req, res){
         try{
             const newStudent = await Student.create(req.body);
-            res.json(newStudent);
+            res.json(newStudent._id);
         }catch(err){
             res.status(500).json(err);
         }

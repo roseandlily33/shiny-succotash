@@ -3,7 +3,7 @@ Week #18 Mini Project Student Statistics Back End MongoDB
 
 ## Description:
 It to make a mongodb app that has students, courses and assignments, using the mongoose model. 
-It includes 2 aggregate functions one for head count and another for finding teh average of a students grade. 
+It includes 2 aggregate functions one for head count and another for finding the average of a students grade. 
 
 ## Screenshots:
 Coming soon 

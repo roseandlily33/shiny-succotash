@@ -1,4 +1,4 @@
-const {Student, Course} = require('../models');
+const {Student} = require('../models');
 
 module.exports = {
     async getStudents(req, res) {
